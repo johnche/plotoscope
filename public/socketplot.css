@@ -1,0 +1,18 @@
+body {
+	background-color: #F9FAFB
+}
+.graph {
+	display: flex;
+	width: 80vw;
+	height: 80vh;
+	justify-content: center;
+}
+div.smoothie-chart-tooltip {
+	background: #666;
+	padding: 1em;
+	margin-top: 20px;
+	font-family: helvetica;
+	color: white;
+	font-size: 10px;
+	pointer-events: none;
+}

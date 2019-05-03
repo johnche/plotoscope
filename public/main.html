@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<script>
+	const sock = new WebSocket('ws://' + window.location.hostname + ':8000');
+</script>
+
+<script src="lib/smoothie.js"></script>
+<link href="socketplot.css" rel="stylesheet" type="text/css" />
+<script src="socketplot.js"> </script>
+
+<div class="graph">
+	<canvas id="chart0" style="height: 100%; width: 100%;">
+</div>
