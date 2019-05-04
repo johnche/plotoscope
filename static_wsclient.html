@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<!-- Use with websocketd -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothie/1.34.0/smoothie.js"></script>
+<style>
+	body {
+		background-color: #F9FAFB
+	}
+	.graph {
+		display: flex;
+		width: 80vw;
+		height: 80vh;
+		justify-content: center;
+	}
+	div.smoothie-chart-tooltip {
+		background: #666;
+		padding: 1em;
+		margin-top: 20px;
+		font-family: helvetica;
+		color: white;
+		font-size: 10px;
+		pointer-events: none;
+	}
+</style>
+<script>
+	const sock = new WebSocket('ws://localhost:8000');
+	var data = new TimeSeries();
+
+	sock.addEventListener('message', function (e) {
+		data.append(new Date().getTime(), e.data);
+	});
+
+	window.onload = function () {
+		var chart = new SmoothieChart({
+			grid: {fillStyle: '#F5F6F7', strokeStyle: 'transparent'},
+			labels: {fillStyle: '#2C5573'},
+			minValue: 0,
+			maxValue: 1,
+			tooltip: true,
+			responsive: true
+		});
+		chart.addTimeSeries(data, {lineWidth: 2, strokeStyle: '#FA360A'});
+		chart.streamTo(document.getElementById('chart0'), 500);
+	}
+</script>
+
+<div class="graph">
+	<canvas id="chart0" style="height: 100%; width: 100%;">
+</div>
