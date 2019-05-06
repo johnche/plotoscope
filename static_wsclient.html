@@ -42,10 +42,11 @@
 
 	window.onload = function () {
 		var chart = new SmoothieChart({
-			grid: {fillStyle: '#F5F6F7', strokeStyle: 'transparent'},
+			millisPerPixel: 5,
+			grid: {fillStyle: '#F5F6F7', strokeStyle: '#000000'},
 			labels: {fillStyle: '#2C5573'},
-			minValue: 0,
-			maxValue: 1,
+			minValue: -1.01,
+			maxValue: 1.01,
 			tooltip: true,
 			responsive: true
 		});
