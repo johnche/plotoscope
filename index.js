@@ -10,8 +10,8 @@ sockets.init(http, udp_port);
 
 app.use(express.static('public', {root: __dirname}));
 
-app.get('/', function(req, res) {
-	res.sendFile('public/main.html', {root: __dirname});
+app.get('/smoothie', function(req, res) {
+	res.sendFile('public/smoothie.html', {root: __dirname});
 });
 
 http.listen(web_port, function() {
