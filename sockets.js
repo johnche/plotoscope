@@ -20,14 +20,15 @@ function initConnections(http, udp_port) {
 	});
 
 	udp_server.on('message', (msg, rinfo) => {
-		numeric_value = msg.readFloatBE(0);
-		//numeric_value = msg.readDoubleBE(0);
-
-		wss.clients.forEach(function each(client) {
-			if (client.readyState == WebSocket.OPEN) {
-				client.send(numeric_value);
-			}
-		});
+		const data = msg.toString('utf-8').trim();
+		if (data) {
+			console.log(data);
+			wss.clients.forEach(function each(client) {
+				if (client.readyState == WebSocket.OPEN) {
+					client.send(data);
+				}
+			});
+		}
 	});
 
 	udp_server.bind(udp_port);
