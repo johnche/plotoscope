@@ -8,8 +8,8 @@ window.onload = function () {
 	var chart = new SmoothieChart({
 		grid: {fillStyle: '#F5F6F7', strokeStyle: 'transparent'},
 		labels: {fillStyle: '#2C5573'},
-		minValue: 0,
-		maxValue: 1,
+		minValue: -1.1,
+		maxValue: 1.1,
 		tooltip: true,
 		responsive: true
 	});
