@@ -1,4 +1,6 @@
-# Smoothiescope
+# Plotoscope
 
-Just a tool for quick plotting. Accepts float by default (sockets.js
-line 23) and plots values between 0 and 1.
+Just a tool for quick plotting. Visualizes primarily values between -1 and 1.
+
+Uses [smoothie charts](http://smoothiecharts.org/) and
+[chartist.js](http://gionkunz.github.io/chartist-js/) as plotting engines (public/lib)
